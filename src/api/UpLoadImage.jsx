@@ -1,16 +1,14 @@
 import axios from 'axios';
+import { getApiUrl } from "./config"
 
 function UpLoadImage(value){
 
-    const API_KEY = process.env.IMAGE_API_KEY
-
     let formData = new FormData()
-    formData.set("key", API_KEY)
     formData.append("image", value)
 
     return axios({
         method: 'post',
-        url: 'https://api.imgbb.com/1/upload',
+        url: getApiUrl('upload-image'),
         data: formData
     })
 
