@@ -1,6 +1,5 @@
-import { useContext } from "react"
 import ProductEdit from "./ProductEdit";
-import { AppContext } from "../../context"
+import { useEditMenuContext } from "../../state/context";
 import { v4 as uuidv4 } from 'uuid';
 import { EditText } from 'react-edit-text'
 import SaveChanges from "../../api/SaveChanges";
@@ -13,7 +12,7 @@ function CategoryEdit(){
         loading, 
         refreshIframe, 
         setRefreshIframe
-    } = useContext(AppContext)
+    } = useEditMenuContext()
 
     const addCategory = () => {
         console.log(categoryList)

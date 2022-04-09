@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
-import { useContext } from 'react'
-import { AppContext } from '../../context'
+import React from 'react'
+import { useEditMenuContext } from '../../state/context'
 
 const PreviewMenu = () => {
     
-    const { publicUrl, refreshIframe } = useContext(AppContext)
+    const { publicUrl, refreshIframe } = useEditMenuContext()
 
     return (
         <div className="pl-8 flex gap-3 flex-col w-12/12 lg:w-6/12">
@@ -19,7 +18,7 @@ const PreviewMenu = () => {
                 </div>
             </div>
             <h2 className="text-3xl font-bold text-neutral-900">Preview</h2>
-            <iframe key={refreshIframe} className="h-135 w-72 border-8 rounded-3xl border-neutral-700" src={publicUrl}></iframe>
+            <iframe title="iframe of public menu" key={refreshIframe} className="h-135 w-72 border-8 rounded-3xl border-neutral-700" src={publicUrl}></iframe>
         </div>
     )
 }

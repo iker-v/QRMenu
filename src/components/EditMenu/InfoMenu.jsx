@@ -1,6 +1,5 @@
 import UpLoadImage from "../../api/UpLoadImage"
-import { useContext } from "react"
-import { AppContext } from "../../context"
+import { useEditMenuContext } from "../../state/context"
 import SaveChanges from "../../api/SaveChanges"
 
 function InfoMenu(){
@@ -10,7 +9,7 @@ function InfoMenu(){
         setRefreshIframe,
         info,
         setInfo,
-    } = useContext(AppContext)
+    } = useEditMenuContext()
 
     const changeValue = (e) => {
         setInfo((prev) => ({...prev,  [e.target.name] : e.target.value}))
@@ -28,7 +27,7 @@ function InfoMenu(){
                 <label>Image</label>
                 {info?.image ?
                 <div className="relative">
-                    <img className="object-cover h-64 rounded-lg" src={info?.image} />
+                    <img alt="Menu header" className="object-cover h-64 rounded-lg" src={info?.image} />
                     <button onClick={() => changeValue({ target: { value: '', name: 'image' }})} className='top-1 left-1 absolute rounded-full h-5 w-5 flex items-center justify-center bg-gray-700'>
                         <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>

@@ -1,12 +1,10 @@
 
-import React, { useContext } from "react"
-import { AppContext } from "../../context"
-
+import React from "react"
+import { useEditMenuContext } from "../../state/context"
 
 function TabMenu(){
 
-    const { toggleState, toggleTab } = useContext(AppContext)
-
+    const { toggleState, toggleTab } = useEditMenuContext()
     return(
         <nav className="flex w-full items-center">
             <button

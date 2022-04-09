@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { AppContext } from "../../context"
+import React from 'react'
+import { useEditMenuContext } from '../../state/context';
 import { v4 as uuidv4 } from 'uuid';
 import { EditText, EditTextarea } from 'react-edit-text';
 import UpLoadImage from '../../api/UpLoadImage'; 
@@ -12,7 +12,7 @@ function ProductEdit({products, categoryid}) {
         setCategoryList,
         refreshIframe,
         setRefreshIframe
-    } = useContext(AppContext)
+    } = useEditMenuContext()
 
     const addProduct = () => {
         const categoryIndex = categoryList.findIndex(category => category.id === categoryid)
