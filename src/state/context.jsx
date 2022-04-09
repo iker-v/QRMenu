@@ -17,10 +17,11 @@ export const EditMenuContextProvider = ({ children }) => {
 
     useEffect(()=> {
         setLoading(true)
-        const token = edittoken
-        console.log(token)
 
-        getMenu(`${token}`).then((data) => {
+        getMenu(`${edittoken}`).then((data) => {
+            localStorage.setItem("public_token", data.public_token)
+            localStorage.setItem("private_token", data.edit_token)
+
             const publicToken = localStorage.getItem("public_token")
 
             setPublicUrl(`${domain}/public/${publicToken}`)    
