@@ -1,4 +1,4 @@
-# QRMenu.bar - Open Source menu digital for restaurants
+# QRMenu.bar - Open Source digital menu for restaurants
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
