@@ -5,7 +5,7 @@ import { MenuCategories } from "../components/PublicMenu/MenuCategories";
 import { MenuProducts } from "../components/PublicMenu/MenuProducts";
 import { MenuLoading } from "../components/PublicMenu/MenuLoading";
 import { MenuNotFound } from "../components/PublicMenu/MenuNotFound";
-import { getMenuPublic } from "../api/getMenu";
+import { getMenu } from "../api/getMenu";
 
 function PublicMenu(){
 
@@ -18,7 +18,7 @@ function PublicMenu(){
     useEffect(()=> {
 
         setLoading(true)
-        getMenuPublic(`${publictoken}`).then((data) => {
+        getMenu(`${publictoken}`).then((data) => {
 
             setMenuList(JSON.parse(data['menu']))
             setInfo(JSON.parse(data['restaurant_info']))

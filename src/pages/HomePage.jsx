@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { getEditToken } from "../api/getMenu";
+import { generateMenu } from "../api/getMenu";
 
 export const HomePage = () => {
 
     useEffect(()=> {
-        getEditToken().then(data => {
+        generateMenu().then(data => {
 
             localStorage.setItem("private_token", data["edit_uuid"])
             localStorage.setItem("public_token", data["public_uuid"])

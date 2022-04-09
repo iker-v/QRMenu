@@ -12,7 +12,7 @@ const PreviewMenu = () => {
                 <div className="flex items-center">
                     <input disabled defaultValue={publicUrl} className="py-1 px-2 w-64 border-2 rounded-l-lg" />
                     <button onClick={() => navigator.clipboard.writeText(publicUrl)} className="flex gap-1 items-center py-1.5 px-3 rounded-r-lg border-2 border-blue-500 bg-blue-500 hover:bg-blue-600 text-sm text-white font-semibold">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path><path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path></svg>
+                        <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path><path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path></svg>
                         Copy
                     </button>
                 </div>

@@ -6,17 +6,8 @@ export const generateMenu = () => {
     return axios.get(apiUrl).then(res => res.data)
 }
 
-export const getMenuEdit = token => {
-    const apiUrl = getApiUrl(`get-qrmenu-edit/${token}?format=json`)
-    return axios.get(apiUrl).then(res => res.data[0])
-}
+export const getMenu = token => {
+    const apiUrl = getApiUrl(`get-qrmenu/${token}?format=json`)
 
-export const getMenuPublic = token => {
-    const apiUrl = getApiUrl(`get-qrmenu-public/${token}?format=json`)
     return axios.get(apiUrl).then(res => res.data[0])
-}
-
-export const getEditToken = () => {
-    const apiUrl = getApiUrl('gen-qr-menu?format=json')
-    return axios.get(apiUrl).then(res => res.data)
 }

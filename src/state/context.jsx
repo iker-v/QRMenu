@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import { domain } from "../api/config";
-import { getMenuEdit } from "../api/getMenu";
+import { getMenu } from "../api/getMenu";
 
 const EditMenuContext = createContext();
 
@@ -12,13 +13,16 @@ export const EditMenuContextProvider = ({ children }) => {
     const [publicUrl, setPublicUrl] = useState("")
     const [showQR, setShowQR] = useState(false)
     const [categoryList, setCategoryList] = useState([])
+    const { edittoken } = useParams()
 
     useEffect(()=> {
         setLoading(true)
-        const token = localStorage.getItem("private_token")
+        const token = edittoken
+        console.log(token)
 
-        getMenuEdit(`${token}`).then((data) => {
+        getMenu(`${token}`).then((data) => {
             const publicToken = localStorage.getItem("public_token")
+
             setPublicUrl(`${domain}/public/${publicToken}`)    
 
             setInfo(JSON.parse(data.restaurant_info))
@@ -48,6 +52,7 @@ export const EditMenuContextProvider = ({ children }) => {
             setRefreshIframe,
             info,
             setInfo,
+            edittoken,
         }}>
             {children}
         </EditMenuContext.Provider>
