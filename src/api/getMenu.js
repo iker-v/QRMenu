@@ -8,10 +8,6 @@ export const generateMenu = () => {
 
 export const getMenu = token => {
     const apiUrl = getApiUrl(`get-qrmenu/${token}?format=json`)
-    localStorage.removeItem("public_token")
-    localStorage.removeItem("private_token")
-    return axios.get(apiUrl).then(res => {
-        console.log(res.data[0]);
-        return res.data[0]}
-    )
+
+    return axios.get(apiUrl).then(res => res.data[0])
 }

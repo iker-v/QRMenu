@@ -1,6 +1,6 @@
 import UpLoadImage from "../../api/UpLoadImage"
 import { useEditMenuContext } from "../../state/context"
-import SaveChanges from "../../api/SaveChanges"
+import SaveInfo from "../../api/SaveInfo"
 
 function InfoMenu(){
 
@@ -17,7 +17,7 @@ function InfoMenu(){
 
     const saveForm = () => {
         localStorage.setItem("info", JSON.stringify(info))
-        SaveChanges()
+        SaveInfo()
         setRefreshIframe(refreshIframe+1)
     }
 
@@ -50,15 +50,15 @@ function InfoMenu(){
             </div>
             <div className="flex flex-col">
                 <label>Name</label>
-                <input name="name" valueDefault={info?.name} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
+                <input name="name" value={info?.name} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
             </div>
             <div className="flex flex-col">
                 <label>Address</label>
-                <input name="address" valueDefault={info?.address} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
+                <input name="address" value={info?.address} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
             </div>
             <div className="flex flex-col">
                 <label>Phone</label>
-                <input name="phone" valueDefault={info?.phone} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
+                <input name="phone" value={info?.phone} onChange={(e) => changeValue(e)} className="py-1 px-2 rounded-lg border" />
             </div>
             <button onClick={() => saveForm()} className="bg-blue-500 rounded-lg py-1 px-2 text-white font-semibold">Save changes</button>    
         </div>

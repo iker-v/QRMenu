@@ -3,7 +3,7 @@ import { useEditMenuContext } from '../../state/context';
 import { v4 as uuidv4 } from 'uuid';
 import { EditText, EditTextarea } from 'react-edit-text';
 import UpLoadImage from '../../api/UpLoadImage'; 
-import SaveChanges from '../../api/SaveChanges';
+import SaveMenu from '../../api/SaveMenu';
 
 function ProductEdit({products, categoryid}) {
 
@@ -27,6 +27,8 @@ function ProductEdit({products, categoryid}) {
             quantity: '1 cup'
         })
         setCategoryList(newProduct)
+        SaveMenu()
+        setRefreshIframe(refreshIframe+1)
     }
 
     const removeProduct = (value) => {
@@ -36,7 +38,7 @@ function ProductEdit({products, categoryid}) {
         localStorage.setItem("menu", JSON.stringify(list))
 
         setCategoryList(list) 
-        SaveChanges()
+        SaveMenu()
         setRefreshIframe(refreshIframe+1)
     }
 
@@ -49,7 +51,7 @@ function ProductEdit({products, categoryid}) {
 
 
         localStorage.setItem("menu", JSON.stringify(newList))
-        SaveChanges()
+        SaveMenu()
         setRefreshIframe(refreshIframe+1)
     }
 

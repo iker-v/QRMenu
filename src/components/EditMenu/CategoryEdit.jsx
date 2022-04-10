@@ -2,7 +2,7 @@ import ProductEdit from "./ProductEdit";
 import { useEditMenuContext } from "../../state/context";
 import { v4 as uuidv4 } from 'uuid';
 import { EditText } from 'react-edit-text'
-import SaveChanges from "../../api/SaveChanges";
+import SaveMenu from "../../api/SaveMenu";
 
 function CategoryEdit(){
 
@@ -15,7 +15,6 @@ function CategoryEdit(){
     } = useEditMenuContext()
 
     const addCategory = () => {
-        console.log(categoryList)
         setCategoryList([...categoryList, 
             {id: uuidv4(), name: 'Category',
             products: [
@@ -36,7 +35,7 @@ function CategoryEdit(){
         list.splice(list.findIndex(value => value.id === id), 1)
         localStorage.setItem("menu", JSON.stringify(list))
 
-        SaveChanges()
+        SaveMenu()
         setRefreshIframe(refreshIframe+1)
         setCategoryList(list)
 
@@ -50,7 +49,7 @@ function CategoryEdit(){
         setCategoryList(newList)
 
         localStorage.setItem("menu", JSON.stringify(newList))
-        SaveChanges()
+        SaveMenu()
 
         setRefreshIframe(refreshIframe+1)
     }

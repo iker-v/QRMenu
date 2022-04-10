@@ -19,7 +19,7 @@ function PublicMenu(){
 
         setLoading(true)
         getMenu(`${publictoken}`).then((data) => {
-
+            console.log(data['restaurant_info'])
             setMenuList(JSON.parse(data['menu']))
             setInfo(JSON.parse(data['restaurant_info']))
             

@@ -19,11 +19,13 @@ export const EditMenuContextProvider = ({ children }) => {
         setLoading(true)
 
         getMenu(`${edittoken}`).then((data) => {
+            console.log("okkkkk")
+            console.log(data)
             localStorage.setItem("public_token", data.public_token)
             localStorage.setItem("private_token", data.edit_token)
 
             const publicToken = localStorage.getItem("public_token")
-
+            console.log(publicToken)
             setPublicUrl(`${domain}/public/${publicToken}`)    
 
             setInfo(JSON.parse(data.restaurant_info))
