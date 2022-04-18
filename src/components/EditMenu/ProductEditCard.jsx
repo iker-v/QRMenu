@@ -19,11 +19,11 @@ function ProductEdit({products, categoryid}) {
         const newProduct = [...categoryList]
         newProduct[categoryIndex]['products'].push({
             id: uuidv4(),
-            image: 'https://cdn.bioguia.com/embed/6970cbfd82002e1c4b30a57820e5c185a1579879446/plato-comida.jpg',
-            name: 'Product',
-            desc: 'desc',
-            price: '7',
-            currency: '€',
+            image: '',
+            name: '',
+            desc: '',
+            price: '',
+            currency: '',
             quantity: '1 cup'
         })
         setCategoryList(newProduct)
@@ -92,6 +92,7 @@ function ProductEdit({products, categoryid}) {
                         <div className="flex px-2 flex-col w-9/12">
                             <EditText
                                 id={product.id}
+                                placeholder="Product name.."
                                 name="name"
                                 className="focus:rounded-lg focus:py-0.5 focus:px-1"
                                 defaultValue={product.name}
@@ -99,6 +100,7 @@ function ProductEdit({products, categoryid}) {
                             />
                             <EditTextarea 
                                 name="desc"
+                                placeholder="Product description.."
                                 className="text-sm break-words overflow-hidden py-1 focus:rounded-lg focus:py-0.5 focus:px-1"
                                 defaultValue={product.desc}
                                 onSave={(e) => saveValue(product.id, e)}
@@ -107,12 +109,14 @@ function ProductEdit({products, categoryid}) {
                                 <p className="flex items-center gap-1 text-neutral-800">
                                     <EditText
                                         name="price"
+                                        placeholder="0"
                                         className="min-w-fit focus:rounded-lg focus:py-0.5 focus:px-1"
                                         defaultValue={product.price}
                                         onSave={(e) => saveValue(product.id, e)}
                                     />
                                     <EditText
                                         name="currency"
+                                        placeholder="€"
                                         className="min-w-fit focus:rounded-lg focus:py-0.5 focus:px-1"
                                         defaultValue={product.currency}
                                         onSave={(e) => saveValue(product.id, e)}
@@ -128,7 +132,12 @@ function ProductEdit({products, categoryid}) {
                 )
             ) }
 
-            <button onClick={addProduct} className="bg-gray-400 hover:bg-neutral-500 w-full py-1.5 px-3 rounded-lg font-semibold text-white transition ease-in duration-200 focus:outline-none text-xs focus:shadow-lg" type="button">Add product</button>
+            <button 
+                onClick={addProduct}
+                className="flex items-center gap-1 py-1.5 px-3 rounded-lg font-semibold text-gray-700 focus:outline-none text-xs hover:text-gray-900" type="button">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path></svg>
+                Add product
+            </button>
         </div>
     )
 }

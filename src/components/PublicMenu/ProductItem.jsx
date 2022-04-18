@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const MenuProduct = ({product}) => {
+export const ProductItem = ({product}) => {
   return (
     <div key={product.id} className="flex border rounded-lg">
         <div className="w-3/12 flex flex-col items-center justify-center rounded-l-lg bg-gray-200">

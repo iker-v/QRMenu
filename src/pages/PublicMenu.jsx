@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { MenuHeader } from "../components/PublicMenu/MenuHeader";
 import { MenuCategories } from "../components/PublicMenu/MenuCategories";
-import { MenuProducts } from "../components/PublicMenu/MenuProducts";
+import { ProductCard } from "../components/PublicMenu/ProductCard";
 import { MenuLoading } from "../components/PublicMenu/MenuLoading";
 import { MenuNotFound } from "../components/PublicMenu/MenuNotFound";
 import { getMenu } from "../api/getMenu";
@@ -19,7 +19,6 @@ function PublicMenu(){
 
         setLoading(true)
         getMenu(`${publictoken}`).then((data) => {
-            console.log(data['restaurant_info'])
             setMenuList(JSON.parse(data['menu']))
             setInfo(JSON.parse(data['restaurant_info']))
             
@@ -37,7 +36,7 @@ function PublicMenu(){
         <div className="flex flex-col gap-3 max-w-3xl mx-auto">
             <MenuHeader info={info} />
             <MenuCategories menuList={menuList} />
-            <MenuProducts menuList={menuList}/>
+            <ProductCard menuList={menuList}/>
         </div>
     )
 }
