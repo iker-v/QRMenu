@@ -3,10 +3,27 @@ import TabMenu from "./TabMenu";
 import InfoMenu from "./InfoMenu";
 import ShowQR from "./ShowQR";
 import { useEditMenuContext } from "../../state/context"
+import { v4 as uuidv4 } from 'uuid';
 
 function EditMenuIndex(){
 
-    const { toggleState, publicUrl, setShowQR } = useEditMenuContext()
+    const { categoryList, setCategoryList, toggleState, publicUrl, setShowQR } = useEditMenuContext()
+
+    const addCategory = () => {
+        setCategoryList([...categoryList, 
+            {id: uuidv4(), name: 'Category',
+            products: [
+                {
+                    id: uuidv4(),
+                    name: 'Product',
+                    desc: 'desc',
+                    price: '7',
+                    currency: '€',
+                    quantity: '1 cup'
+                }
+            ]
+        }])
+    }
 
     return (
         <div className="flex gap-5 flex-col w-12/12 lg:w-7/12">
@@ -25,7 +42,17 @@ function EditMenuIndex(){
             </div>
             <ShowQR/>
             <TabMenu/>
-            { toggleState === 0 ? <CategoryCard/> : <InfoMenu/> }
+            { toggleState === 0 ? 
+                <div className="flex flex-col gap-2 justify-center items-start">
+                    { categoryList.map((category, categoryIndex) => { 
+                        return <CategoryCard 
+                            category={category}
+                            categoryIndex={categoryIndex}
+                        /> 
+                    }) }
+                    <button onClick={addCategory} className="py-1.5 mt-2 w-full flex justify-center shadow-lg items-center gap-1 px-3 rounded-lg bg-blue-400 hover:bg-blue-600 text-sm text-white font-semibold" type="button">Add category</button>
+                </div>
+            : <InfoMenu/> }
         </div>
     )
 }

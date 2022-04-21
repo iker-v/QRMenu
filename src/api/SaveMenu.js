@@ -11,7 +11,7 @@ function SaveChanges(){
         "menu": menu,
     }
     
-    axios
+    return axios
     .put(getApiUrl('save-menu'), data)
 }
 
