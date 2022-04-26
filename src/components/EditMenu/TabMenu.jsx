@@ -6,7 +6,7 @@ function TabMenu(){
 
     const { toggleState, toggleTab } = useEditMenuContext()
     return(
-        <nav className="flex items-center w-full gap-2 bg-neutral-200 py-1.5 px-2 rounded-lg">
+        <nav role="tab" className="flex items-center w-full gap-2 bg-neutral-200 py-1.5 px-2 rounded-lg">
             <button
                 className={toggleState === 0 ? "flex items-center justify-center gap-0.5 text-white px-3 py-1 bg-blue-500 rounded-lg font-semibold w-full" : "flex items-center justify-center gap-0.5 text-gray-800 px-3 py-1 bg-white rounded-lg font-semibold w-full"}
                 onClick={()=>{toggleTab(0)}}

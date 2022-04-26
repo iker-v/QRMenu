@@ -50,7 +50,13 @@ function EditMenuIndex(){
                             categoryIndex={categoryIndex}
                         /> 
                     }) }
-                    <button onClick={addCategory} className="py-1.5 mt-2 w-full flex justify-center shadow-lg items-center gap-1 px-3 rounded-lg bg-blue-400 hover:bg-blue-600 text-sm text-white font-semibold" type="button">Add category</button>
+                    <button 
+                        onClick={addCategory} 
+                        className="py-1.5 mt-2 w-full flex justify-center shadow-lg items-center gap-1 px-3 rounded-lg bg-blue-400 hover:bg-blue-600 text-sm text-white font-semibold"
+                        type="button"
+                    >
+                        Add category
+                    </button>
                 </div>
             : <InfoMenu/> }
         </div>
