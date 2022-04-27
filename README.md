@@ -1,6 +1,7 @@
 # QRMenu.bar - Open Source digital menu for restaurants
 ![](https://i.imgur.com/g3ylzHS.gif)
 > Create interactive mobile menu to manage your restaurant online
+> ### [Demo](https://qrmenu.bar)
 
 ### Built with
 
