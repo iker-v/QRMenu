@@ -15,9 +15,9 @@
 - Open source :)
 
 ## Install
-`
-  git clone https://github.com/iker-v/QRMenu.git
-  npm test
-  npm start
-`
+
+  `git clone https://github.com/iker-v/QRMenu.git`
+  `npm test`
+  `npm start`
+
 
